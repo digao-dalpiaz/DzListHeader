@@ -32,24 +32,24 @@ Please see Example folder to know the basic functions.
 
 ## Properties
 
-AllowMoving = Enable/Disable columns repositioning
-AllowResize = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
+`AllowMoving` = Enable/Disable columns repositioning
+`AllowResize` = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
 
-ColorNormalCol = Column background color
-ColorHoverCol = Column background color when mouse over the column
+`ColorNormalCol` = Column background color
+`ColorHoverCol` = Column background color when mouse over the column
 
-ColorLineNormal = Line background color (on listbox) when not odd line (or UseOdd disabled), and not selected line
-ColorLineOdd = Line background color when odd line and UseOdd enabled
-ColorLineSel = Line background color when line is selected
+`ColorLineNormal` = Line background color (on listbox) when not odd line (or UseOdd disabled), and not selected line
+`ColorLineOdd` = Line background color when odd line and UseOdd enabled
+`ColorLineSel` = Line background color when line is selected
 
-ColorShape = Color of dash that's indicate moving or resising orientation
+`ColorShape` = Color of dash that's indicate moving or resising orientation
 
-Columns = Columns Collection
+`Columns` = Columns Collection
 
-HeaderHeight = Fixed Header Height (you can type multiple-lines in Column Caption if you want)
+`HeaderHeight` = Fixed Header Height (you can type multiple-lines in Column Caption if you want)
 
-LineCenter = indicates DwCol function draws text centralized vertically according to the line height
-LineTop = indicates the Y position of text to the DwCol when LineCenter is False
-ListBox = ListBox object (required!)
-TitleFont = Title Font for Columns captions
-UseOdd = use specific color background for odd lines (see ColorLineOdd property)
+`LineCenter` = indicates DwCol function draws text centralized vertically according to the line height
+`LineTop` = indicates the Y position of text to the DwCol when LineCenter is False
+`ListBox` = *ListBox object (required!)*
+`TitleFont` = Title Font for Columns captions
+`UseOdd` = use specific color background for odd lines (see ColorLineOdd property)
