@@ -61,3 +61,28 @@ Please see Example folder to know the basic functions.
 `TitleFont` = Title Font for Columns captions
 
 `UseOdd` = use specific color background for odd lines (see ColorLineOdd property)
+
+## Columns properties
+
+`Alignment` = Indicates alignment of text used on DwCol function
+
+`Caption` = The caption text of column title
+
+`CaptionEx` = This caption is optional, used if you want to specify a full caption to display in Customize Dialog (e.g.: Caption: "ID", CaptionEx: "ID of Person")
+
+`Customizable` = Allow the column to be customizable on Customize Dialog
+
+`Hint` = Column Hint
+
+`MaxWidth` = Column MaxWidth when resizing
+
+`MinWidth` = Column MinWidth when resizing
+
+`Name` = Column Name to find the column (ColByName function) and for Save/Load customization (SaveCustom/LoadCustom functions)
+
+`Sizeable` = Allow column resize
+
+`Visible` = Show/Hide column
+
+`Width` = Column width
+
