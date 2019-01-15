@@ -26,3 +26,6 @@ Create desired columns at ListHeader.Columns property (you should see the column
 
 The main idea is to use the ListBox.OnDrawItem and call the ListHeader.DwCol to easily draw a column.
 
+Please see Example folder to know the basic functions.
+
+![Example Image](print.png?raw=true "Example Application")
