@@ -123,6 +123,19 @@ procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer 
 Used at OnDrawItem, to draw a column.
 You can specify a margin at left side of column, to draw an icon or other custom draw.
 
+## Column Procedures/Functions
+
+```
+function GetLeft: Integer
+```
+Returns left position of column according by rect bounds
+
+```
+function GetRight: Integer
+```
+Returns right position of column according by rect bounds
+
+
 ## OnDrawItem usage
 
 You should write OnDrawItem of TListBox following this idea:
