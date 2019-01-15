@@ -815,7 +815,7 @@ var Col, ColAnt: TListHeaderCol;
     X, W, Wtot: Integer;
     Count: Integer;
     ItFits: Boolean;
-const SOBRINHA = 20; //safety espaço of listbox vertical scroll bar
+const SOBRINHA = 20; //safety space of listbox vertical scroll bar
 begin
     if csLoading in Comp.ComponentState then Exit;
 
