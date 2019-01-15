@@ -162,3 +162,30 @@ begin
   ListHeader.DwCol(2, Rect, P.Gender);
 end;
 ```
+
+## Events
+
+```
+OnColumnClick(Sender: TObject; Col: TListHeaderCol)
+```
+Occurs when left-clicked on a column
+
+```
+OnColumnRClick(Sender: TObject; Col: TListHeaderCol)
+```
+Occurs when right-clicked on a column
+
+```
+OnColumnResize(Sender: TObject; Col: TListHeaderCol)
+```
+Occurs after a column was resised
+
+```
+MouseEnterCol(Sender: TObject; Col: TListHeaderCol)
+```
+Ocurrs when mouse enters a column area
+
+```
+MouseLeaveCol(Sender: TObject; Col: TListHeaderCol)
+```
+Ocurrs when mouse leaves a column area
