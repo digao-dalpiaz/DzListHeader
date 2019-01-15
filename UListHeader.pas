@@ -267,7 +267,7 @@ type
     property OnMouseEnterCol: TEvListHeaderColumnOp read FEvMouseEnterCol write FEvMouseEnterCol;
     property OnMouseLeaveCol: TEvListHeaderColumnOp read FEvMouseLeaveCol write FEvMouseLeaveCol;
   end;
-  
+
 procedure Register;
 
 implementation
@@ -275,7 +275,7 @@ implementation
 uses System.SysUtils, Winapi.Windows, System.Math, Vcl.Forms,
   System.UITypes, System.StrUtils,
   UFrmListHeaderCustom;
-  
+
 procedure Register;
 begin
   RegisterComponents('ListHeader', [TListHeader]);
@@ -380,6 +380,10 @@ type TAcListBox = class(TCustomListBox);
 
 procedure TListHeader.InitDrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState);
 begin
+    if not Assigned(FListBox) then
+      raise Exception.Create('ListBox not assigned');
+    //
+
     FListBox.Canvas.Font.Color := clBlack;
 
     FListBox.Canvas.Brush.Color := FColorLineNormal;
@@ -395,6 +399,10 @@ var C: TListHeaderCol;
     A: String;
     X, Y: Integer;
 begin
+    if not Assigned(FListBox) then
+      raise Exception.Create('ListBox not assigned');
+    //
+
     C := FColumns.FindItemID(ID);
     if not C.FVisible then Exit;
 
@@ -807,7 +815,7 @@ var Col, ColAnt: TListHeaderCol;
     X, W, Wtot: Integer;
     Count: Integer;
     ItFits: Boolean;
-const SOBRINHA = 20; //safety espaÃ§o of listbox vertical scroll bar
+const SOBRINHA = 20; //safety espaço of listbox vertical scroll bar
 begin
     if csLoading in Comp.ComponentState then Exit;
 
