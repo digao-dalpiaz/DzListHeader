@@ -95,13 +95,13 @@ Please see Example folder to know the basic functions.
 ```
 procedure LoadCustom(const A: String)
 ```
-Loads column customization from string, including position, size, and visibility
+Loads column customization from string, including position, size, and visibility.
 You can load from registry/ini file
 
 ```
 function SaveCustom: String
 ```
-Save columns customization to string, including position, size, and visibility
+Save columns customization to string, including position, size, and visibility.
 You can save to registry/ini file
 
 ```
