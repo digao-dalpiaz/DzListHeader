@@ -31,6 +31,7 @@ The main idea is to use the ListBox.OnDrawItem and call the ListHeader.DwCol to 
 Please see Example folder to know the basic functions.
 
 ![Example Image](print.png?raw=true "Example Application")
+![Example CustomDlg](custom_dlg.png?raw=true "Example Custom Dlg")
 
 ## Properties
 
