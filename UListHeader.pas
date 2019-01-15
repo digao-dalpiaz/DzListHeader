@@ -267,12 +267,19 @@ type
     property OnMouseEnterCol: TEvListHeaderColumnOp read FEvMouseEnterCol write FEvMouseEnterCol;
     property OnMouseLeaveCol: TEvListHeaderColumnOp read FEvMouseLeaveCol write FEvMouseLeaveCol;
   end;
+  
+procedure Register;
 
 implementation
 
 uses System.SysUtils, Winapi.Windows, System.Math, Vcl.Forms,
   System.UITypes, System.StrUtils,
   UFrmListHeaderCustom;
+  
+procedure Register;
+begin
+  RegisterComponents('ListHeader', [TListHeader]);
+end;
 
 procedure TListHeader.CreateShape(bResizing: Boolean);
 begin
@@ -800,7 +807,7 @@ var Col, ColAnt: TListHeaderCol;
     X, W, Wtot: Integer;
     Count: Integer;
     ItFits: Boolean;
-const SOBRINHA = 20; //safety espaço of listbox vertical scroll bar
+const SOBRINHA = 20; //safety espaÃ§o of listbox vertical scroll bar
 begin
     if csLoading in Comp.ComponentState then Exit;
 
