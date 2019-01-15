@@ -86,3 +86,56 @@ Please see Example folder to know the basic functions.
 
 `Width` = Column width
 
+## Procedures/Functions
+
+```
+procedure LoadCustom(const A: String)
+```
+Loads column customization from string, including position, size, and visibility
+You can load from registry/ini file
+
+```
+function SaveCustom: String
+```
+Save columns customization to string, including position, size, and visibility
+You can save to registry/ini file
+
+```
+function ColByID(ID: Integer): TListHeaderCol
+```
+Returns a TListHeaderCol by column ID. The ID remains fixed when moving columns (the position of column is defined by Index property).
+
+```
+function ColByName(const aName: String): TListHeaderCol
+```
+Returns a TListHeaderCol by column Name.
+
+```
+procedure InitDrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState)
+```
+Used at OnDrawItem of ListBox, to initilize line drawing
+
+```
+procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0)
+```
+Used at OnDrawItem, to draw a column.
+You can specify a margin at left side of column, to draw an icon or other custom draw.
+
+## OnDrawItem usage
+
+You should write OnDrawItem of TListBox following this idea:
+
+```
+procedure TForm1.ListBoxDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
+  State: TOwnerDrawState);
+var P: TPerson;
+begin
+  ListHeader.InitDrawItem(Index, Rect, State);
+
+  P := TPerson(ListBox.Items.Objects[Index]);
+
+  ListHeader.DwCol(0, Rect, P.ID);
+  ListHeader.DwCol(1, Rect, P.Name);
+  ListHeader.DwCol(2, Rect, P.Gender);
+end;
+```
