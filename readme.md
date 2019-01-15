@@ -88,6 +88,8 @@ Please see Example folder to know the basic functions.
 
 `Width` = Column width
 
+`Data` = Pointer to free use (not published property)
+
 ## Procedures/Functions
 
 ```
