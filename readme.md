@@ -33,6 +33,11 @@ Please see Example folder to know the basic functions.
 ![Example Image](print.png?raw=true "Example Application")
 ![Example CustomDlg](custom_dlg.png?raw=true "Example Custom Dlg")
 
+## Customize Dialog
+
+To open Customize Dialog, just right-click at any part of header or columns.
+In Customize Dialog you can reorder columns, show/hide columns and set the default order.
+
 ## Properties
 
 `AllowMoving` = Enable/Disable columns repositioning
