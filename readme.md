@@ -8,8 +8,8 @@
 - [Customize Dialog](#customize-dialog)
 - [Properties](#properties)
 - [Column properties](#column-properties)
-- [Procedures/Functions](#procedures-functions)
-- [Column Procedures/Functions](#column-procedures-functions]
+- [Procedures/Functions](#proceduresfunctions)
+- [Column Procedures/Functions](#column-proceduresfunctions)
 - [OnDrawItem usage](#ondrawitem-usage)
 - [Events](#events)
 
