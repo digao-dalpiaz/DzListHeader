@@ -27,7 +27,7 @@ Supports Delphi 2005..Delphi 10.3 Rio (using For In loops)
 
 Drop the ListHeader in a Form, then drop a ListBox inside the ListHeader. You must align the listbox "alClient".
 
-Set the ListHeader.ListBox = ListBox.
+**Set the ListHeader.ListBox = ListBox.**
 
 Create desired columns at ListHeader.Columns property (you should see the columns at design-time).
 
