@@ -99,7 +99,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `Width` = Column width
 
-`Data` = Pointer to free use (not published property)
+`Data` = Pointer to free use (non published property)
 
 ## Procedures/Functions
 
