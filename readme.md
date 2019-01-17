@@ -5,12 +5,12 @@
 - [Component Description](#component-description)
 - [Installing](#installing)
 - [How to use](#how-to-use)
+- [OnDrawItem usage](#ondrawitem-usage)
 - [Customize Dialog](#customize-dialog)
 - [Properties](#properties)
 - [Column properties](#column-properties)
 - [Procedures/Functions](#proceduresfunctions)
 - [Column Procedures/Functions](#column-proceduresfunctions)
-- [OnDrawItem usage](#ondrawitem-usage)
 - [Events](#events)
 
 ## Component Description
@@ -50,6 +50,25 @@ Please see Example folder to know the basic functions.
 
 ![Example Image](print.png?raw=true "Example Application")
 ![Example CustomDlg](custom_dlg.png?raw=true "Example Custom Dlg")
+
+## OnDrawItem usage
+
+You should write OnDrawItem of TListBox following this idea:
+
+```
+procedure TForm1.ListBoxDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
+  State: TOwnerDrawState);
+var P: TPerson;
+begin
+  ListHeader.InitDrawItem(Index, Rect, State);
+
+  P := TPerson(ListBox.Items.Objects[Index]);
+
+  ListHeader.DwCol(0, Rect, P.ID);
+  ListHeader.DwCol(1, Rect, P.Name);
+  ListHeader.DwCol(2, Rect, P.Gender);
+end;
+```
 
 ## Customize Dialog
 
@@ -160,26 +179,6 @@ Returns left position of column according by rect bounds
 function GetRight: Integer
 ```
 Returns right position of column according by rect bounds
-
-
-## OnDrawItem usage
-
-You should write OnDrawItem of TListBox following this idea:
-
-```
-procedure TForm1.ListBoxDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
-  State: TOwnerDrawState);
-var P: TPerson;
-begin
-  ListHeader.InitDrawItem(Index, Rect, State);
-
-  P := TPerson(ListBox.Items.Objects[Index]);
-
-  ListHeader.DwCol(0, Rect, P.ID);
-  ListHeader.DwCol(1, Rect, P.Name);
-  ListHeader.DwCol(2, Rect, P.Gender);
-end;
-```
 
 ## Events
 
