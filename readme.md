@@ -2,7 +2,7 @@
 
 ## Delphi visual control to create a listbox columns header
 
-[Component Description](#component_description)
+[Component Description](#component-description)
 
 ## Component Description
 
