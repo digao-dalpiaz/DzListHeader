@@ -160,7 +160,7 @@ Returns a TListHeaderCol by column Name.
 ```
 procedure InitDrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState)
 ```
-Used at OnDrawItem of ListBox, to initilize line drawing
+Used at OnDrawItem of ListBox, to initialize line drawing
 
 ```
 procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0)
