@@ -1,6 +1,6 @@
 # ListHeader
 
-## Delphi visual control to create a listbox columns header.
+## Delphi visual control to create a listbox columns header
 
 When you are using listbox, and usually when assigning objects to listbox items, you want to show/draw columns in the listbox, using OnDrawItem event.
 
