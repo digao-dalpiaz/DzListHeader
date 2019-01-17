@@ -21,7 +21,7 @@ Note: To ensure that the component is displayed with its icon, add the following
 {$R UListHeader.dcr}
 ```
 
-Supports Delphi XE..Delphi 10.3 Rio (using Generics and For In)
+Supports Delphi 2005..Delphi 10.3 Rio (using For In loops)
 
 ## How to use
 
