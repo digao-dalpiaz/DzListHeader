@@ -10,7 +10,7 @@ The THeaderControl (Delphi default control) allows some of these operations, but
 
 So, I have been working on this component, and I decided to share it, because it's very useful.
 
-In addition, the ListHeader displays a scroll bar when the columns oversizes the visible area. :)
+In addition, the ListHeader displays a scroll bar when the columns oversizes the visible area. :smile:
 
 ## Installing
 
