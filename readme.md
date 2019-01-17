@@ -2,6 +2,10 @@
 
 ## Delphi visual control to create a listbox columns header
 
+[Component Description](#component_description)
+
+## Component Description
+
 When you are using listbox, and usually when assigning objects to listbox items, you want to show/draw columns in the listbox, using OnDrawItem event.
 
 That's OK, but you don't have a header control to show the columns, and neither allow user to resize, to move, and show/hide columns.
