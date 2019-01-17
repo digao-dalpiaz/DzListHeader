@@ -2,7 +2,16 @@
 
 ## Delphi visual control to create a listbox columns header
 
-[Component Description](#component-description)
+- [Component Description](#component-description)
+- [Installing](#installing)
+- [How to use](#how-to-use)
+- [Customize Dialog](#customize-dialog)
+- [Properties](#properties)
+- [Column properties](#column-properties)
+- [Procedures/Functions](#procedures-functions)
+- [Column Procedures/Functions](#column-procedures-functions]
+- [OnDrawItem usage](#ondrawitem-usage)
+- [Events](#events)
 
 ## Component Description
 
@@ -79,7 +88,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `UseOdd` = use specific color background for odd lines (see ColorLineOdd property)
 
-## Columns properties
+## Column properties
 
 `Alignment` = Indicates alignment of text used on DwCol function
 
