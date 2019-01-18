@@ -6,6 +6,7 @@
 - [Installing](#installing)
 - [How to use](#how-to-use)
 - [OnDrawItem usage](#ondrawitem-usage)
+- [Working with Tabbed Text](#working-with-tabbed-text)
 - [Customize Dialog](#customize-dialog)
 - [Properties](#properties)
 - [Column properties](#column-properties)
