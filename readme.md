@@ -74,10 +74,20 @@ Simply like that!
 This components offers a second option of usage, so you don't need to use objects, and you don't need to write code to draw items.
 In this option, you should add items with text cells separated by Tab character.
 
-Example:
+So you just enable AutoDrawTabbedText property and add items to ListBox having cells separated by Tab character, like that:
+
+Example of Strings in ListBox.Items:
 ```
-1<TAB>
+1<TAB>JHON<TAB>1111-2222
+2<TAB>SARAH<TAB>3333-4444
+3<TAB>ALFRED<TAB>5555-6666
 ```
+Then just configure desired columns. In this example will be columns: ID, Name, Phone.
+Without any line of code, this will print all items in the list and aligned by columns parameters.
+
+If you want to add items at run-time, you can use AddItem function, specifying an array of strings that will be converted in tabbed separated text.
+
+You may need to use OnDrawItem with tabbed text to customize cells draw. In this case, you should leave the AutoDrawTabbedText disabled and write event OnDrawItem, and then use GetItemArray to extract array of current item, having cells separated to draw using DwCol method.
 
 ## Customize Dialog
 
