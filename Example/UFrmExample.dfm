@@ -24,6 +24,13 @@ object Form1: TForm1
     Columns = <
       item
         Name = 'ID'
+        Aligmnent = taRightJustify
+        TextFont.Charset = DEFAULT_CHARSET
+        TextFont.Color = clRed
+        TextFont.Height = -11
+        TextFont.Name = 'Tahoma'
+        TextFont.Style = [fsBold]
+        CustomTextFont = True
         Caption = 'ID'
         Width = 50
       end
@@ -33,12 +40,30 @@ object Form1: TForm1
         Width = 150
       end
       item
+        Name = 'Age'
+        Aligmnent = taRightJustify
+        Caption = 'Age'
+        Width = 50
+      end
+      item
+        Name = 'Birthday'
+        Aligmnent = taCenter
+        Caption = 'Birthday'
+        Width = 100
+      end
+      item
         Name = 'Gender'
         Caption = 'Gender'
         Width = 80
       end
       item
         Name = 'Sector'
+        TextFont.Charset = DEFAULT_CHARSET
+        TextFont.Color = clBlue
+        TextFont.Height = -11
+        TextFont.Name = 'Tahoma'
+        TextFont.Style = [fsItalic]
+        CustomTextFont = True
         Caption = 'Sector'
         Width = 100
       end
@@ -49,6 +74,7 @@ object Form1: TForm1
         Width = 100
       end>
     UseOdd = True
+    OnDrawItem = LHDrawItem
     object L: TListBox
       Left = 0
       Top = 20
@@ -58,14 +84,13 @@ object Form1: TForm1
       Align = alClient
       ItemHeight = 20
       TabOrder = 2
-      OnDrawItem = LDrawItem
     end
   end
   object IL: TImageList
     Left = 176
     Top = 112
     Bitmap = {
-      494C010102000800100010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C0101020008004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000000000008AC3F3001E94
       F7001E94F7001E94F7001E94F7001E94F7001E94F7001E94F7001E94F7001E94
@@ -201,6 +226,7 @@ object Form1: TForm1
       F00F800100000000FC3FC00300000000F81FC00300000000F00FC00300000000
       E007C00300000000C003C00300000000C003C00300000000C003C00300000000
       C003C00300000000C003C00300000000C003E00700000000E007E00700000000
-      E007F00F00000000F81FF81F00000000}
+      E007F00F00000000F81FF81F0000000000000000000000000000000000000000
+      000000000000}
   end
 end
