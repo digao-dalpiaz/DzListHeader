@@ -85,7 +85,6 @@ Let's assume you have following table:
 
 So you just enable AutoDrawTabbedText property and add items to ListBox having cells separated by Tab character, like that:
 
-Example of Strings in ListBox.Items:
 ```
 1[TAB]JHON[TAB]1111-2222
 2[TAB]SARAH[TAB]3333-4444
