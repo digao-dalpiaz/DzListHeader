@@ -92,6 +92,8 @@ Example of Strings in ListBox.Items:
 3[TAB]ALFRED[TAB]5555-6666
 ```
 
+> **Note: [TAB] represents #9 character**
+
 Then just configure desired columns. In this example will be columns: ID, Name, Phone.
 Without any line of code, this will print all items in the list and aligned by columns parameters.
 
