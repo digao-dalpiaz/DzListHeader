@@ -38,13 +38,13 @@ Supports Delphi 2005..Delphi 10.3 Rio (using For In loops)
 
 ## How to use
 
-Drop the ListHeader in a Form, then drop a ListBox inside the ListHeader. You must align the listbox "alClient".
+Drop the ListHeader in a Form, then drop a ListBox inside the ListHeader.
 
 **Set the ListHeader.ListBox = ListBox.**
 
 Create desired columns at ListHeader.Columns property (you should see the columns at design-time).
 
-The main idea is to use the ListBox.OnDrawItem and call the ListHeader.DwCol to easily draw a column.
+Then write OnDrawItem of ListHeader (not OnDrawItem of ListBox - leave this unassigned). Call the method ListHeader.DwCol to easily draw each single column.
 
 Please see Example folder to know the basic functions.
 
@@ -53,15 +53,13 @@ Please see Example folder to know the basic functions.
 
 ## OnDrawItem usage
 
-You should write OnDrawItem of TListBox following this idea:
+You should write OnDrawItem of ListHeader (not ListBox), following this idea:
 
 ```
-procedure TForm1.ListBoxDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
+procedure TForm1.ListHeaderDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
   State: TOwnerDrawState);
 var P: TPerson;
 begin
-  ListHeader.InitDrawItem(Index, Rect, State);
-
   P := TPerson(ListBox.Items.Objects[Index]);
 
   ListHeader.DwCol(0, Rect, P.ID);
@@ -69,6 +67,7 @@ begin
   ListHeader.DwCol(2, Rect, P.Gender);
 end;
 ```
+Simply like that!
 
 ## Customize Dialog
 
@@ -103,6 +102,8 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `ListBox` = *ListBox object (required!)*
 
+`TextMargin` = Space in Pixels at left and right of column (used so that the text in one column does not stick to the text in another column)
+
 `TitleFont` = Title Font for Columns captions
 
 `UseOdd` = use specific color background for odd lines (see ColorLineOdd property)
@@ -117,6 +118,8 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `Customizable` = Allow the column to be customizable on Customize Dialog
 
+`CustomTextFont` = Determines stored for TextFont property (is automatically set when TextFont changes)
+
 `Hint` = Column Hint
 
 `MaxWidth` = Column MaxWidth when resizing
@@ -126,6 +129,8 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 `Name` = Column Name to find the column (ColByName function) and for Save/Load customization (SaveCustom/LoadCustom functions)
 
 `Sizeable` = Allow column resize
+
+`TextFont` = Font used by Canvas to draw item text for this column (if not changed, canvas uses ListBox font to draw items)
 
 `Visible` = Show/Hide column
 
@@ -158,11 +163,6 @@ function ColByName(const aName: String): TListHeaderCol
 Returns a TListHeaderCol by column Name.
 
 ```
-procedure InitDrawItem(Index: Integer; Rect: TRect; State: TOwnerDrawState)
-```
-Used at OnDrawItem of ListBox, to initialize line drawing
-
-```
 procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0)
 ```
 Used at OnDrawItem, to draw a column.
@@ -173,34 +173,39 @@ You can specify a margin at left side of column, to draw an icon or other custom
 ```
 function GetLeft: Integer
 ```
-Returns left position of column according by rect bounds
+Returns left position of column according by rect bounds.
 
 ```
 function GetRight: Integer
 ```
-Returns right position of column according by rect bounds
+Returns right position of column according by rect bounds.
 
 ## Events
 
 ```
 OnColumnClick(Sender: TObject; Col: TListHeaderCol)
 ```
-Occurs when left-clicked on a column
+Occurs when left-clicked on a column.
 
 ```
 OnColumnRClick(Sender: TObject; Col: TListHeaderCol)
 ```
-Occurs when right-clicked on a column
+Occurs when right-clicked on a column.
 
 ```
 OnColumnResize(Sender: TObject; Col: TListHeaderCol)
 ```
-Occurs after a column was resised
+Occurs after a column was resised.
+
+```
+OnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState)
+```
+You should used this event to write all columns, using DwCol method (please see example source).
 
 ```
 MouseEnterCol(Sender: TObject; Col: TListHeaderCol)
 ```
-Ocurrs when mouse enters a column area
+Ocurrs when mouse enters a column area.
 
 ```
 MouseLeaveCol(Sender: TObject; Col: TListHeaderCol)
