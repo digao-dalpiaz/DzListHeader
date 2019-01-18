@@ -199,7 +199,7 @@ type
     FColorLineNormal: TColor;
 
     FUseOdd: Boolean;
-    FTabbedText: Boolean;
+    FAutoDrawTabbedText: Boolean;
 
     FLineCenter: Boolean;
     FLineTop: Integer;
@@ -277,7 +277,7 @@ type
     property ColorLineNormal: TColor read FColorLineNormal write FColorLineNormal default LH_DEF_COLORLINENORMAL;
 
     property UseOdd: Boolean read FUseOdd write FUseOdd default False;
-    property TabbedText: Boolean read FTabbedText write FTabbedText default False;
+    property AutoDrawTabbedText: Boolean read FAutoDrawTabbedText write FAutoDrawTabbedText default False;
 
     property LineCenter: Boolean read FLineCenter write FLineCenter default True;
     property LineTop: Integer read FLineTop write FLineTop default 0;
@@ -441,7 +441,7 @@ begin
 
   FListBox.Canvas.FillRect(Rect);
 
-  if FTabbedText then
+  if FAutoDrawTabbedText then
     DrawTabbedText(Index, Rect)
   else
   if Assigned(FEvOnDrawItem) then
