@@ -154,29 +154,29 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 ## Procedures/Functions
 
-```
+```delphi
 procedure LoadCustom(const A: String)
 ```
 Loads column customization from string, including position, size, and visibility.
 You can load from registry/ini file.
 
-```
+```delphi
 function SaveCustom: String
 ```
 Save columns customization to string, including position, size, and visibility.
 You can save to registry/ini file.
 
-```
+```delphi
 function ColByID(ID: Integer): TListHeaderCol
 ```
 Returns a TListHeaderCol by column ID. The ID remains fixed when moving columns (the position of column is defined by Index property).
 
-```
+```delphi
 function ColByName(const aName: String): TListHeaderCol
 ```
 Returns a TListHeaderCol by column Name.
 
-```
+```delphi
 procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0)
 ```
 Used at OnDrawItem, to draw a column item text.
@@ -184,12 +184,12 @@ The ID represents the column number considering the order in collection. So, eve
 The value represents the text to be printed. Note that the value is variant type, so you don't need to convert to string, unless you want to format the value, of course.
 You can specify a margin at left side of column, to draw an icon or other custom draw (see example source).
 
-```
+```delphi
 function AddItem(const Ar: TArray<String>): Integer
 ```
 This function helps you to add item to ListBox, automatically separating array strings with tab character. You should use this function only when you are storing data into ListBox using tabbed delimiter method. Usually you will want to use this along with the AutoDrawTabbedText property, so you don't need to write OnDrawItem.
 
-```
+```delphi
 function GetItemArray(Index: Integer): TArray<String>
 ```
 Returns an array of strings relative to the Index in ListBox, considering item text has data separated by tab character.
@@ -197,45 +197,45 @@ You can quickly read a cell using `GetItemArray(Index)[Column]`.
 
 ## Column Procedures/Functions
 
-```
+```delphi
 function GetLeft: Integer
 ```
 Returns left position of column according by rect bounds.
 
-```
+```delphi
 function GetRight: Integer
 ```
 Returns right position of column according by rect bounds.
 
 ## Events
 
-```
+```delphi
 OnColumnClick(Sender: TObject; Col: TListHeaderCol)
 ```
 Occurs when left-clicked on a column.
 
-```
+```delphi
 OnColumnRClick(Sender: TObject; Col: TListHeaderCol)
 ```
 Occurs when right-clicked on a column.
 
-```
+```delphi
 OnColumnResize(Sender: TObject; Col: TListHeaderCol)
 ```
 Occurs after a column was resised.
 
-```
+```delphi
 OnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState)
 ```
 You should used this event to write all columns, using DwCol method (please see example source).
 > **This event won't fire if you are using AutoDrawTabbedText=True**
 
-```
+```delphi
 MouseEnterCol(Sender: TObject; Col: TListHeaderCol)
 ```
 Ocurrs when mouse enters a column area.
 
-```
+```delphi
 MouseLeaveCol(Sender: TObject; Col: TListHeaderCol)
 ```
 Ocurrs when mouse leaves a column area.
