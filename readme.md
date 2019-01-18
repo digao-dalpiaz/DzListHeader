@@ -80,6 +80,9 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `AllowResize` = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
 
+`AutoDawTabbedText` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
+*You can still leave this property disabled and work with tabbed text, writing event OnDrawItem and using GetArrayText to read text of columns separated.*
+
 `ColorNormalCol` = Column background color
 
 `ColorHoverCol` = Column background color when mouse over the column
@@ -101,9 +104,6 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 `LineTop` = indicates the Y position of text to the DwCol when LineCenter is False
 
 `ListBox` = *ListBox object (required!)*
-
-`TabbedText` = When using TabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
-*You can still leave this property disabled and work with tabbed text, writing event OnDrawItem and using GetArrayText to read text of columns separated.*
 
 `TextMargin` = Space in Pixels at left and right of column (used so that the text in one column does not stick to the text in another column)
 
@@ -177,7 +177,7 @@ You can specify a margin at left side of column, to draw an icon or other custom
 ```
 function AddItem(const Ar: TArray<String>): Integer
 ```
-This function helps you to add item to ListBox, automatically separating array strings with tab character. You should use this function only when you are storing data into ListBox using tabbed delimiter method. Usually you will want to use this along with the TabbedText property, so you don't need to write OnDrawItem.
+This function helps you to add item to ListBox, automatically separating array strings with tab character. You should use this function only when you are storing data into ListBox using tabbed delimiter method. Usually you will want to use this along with the AutoDrawTabbedText property, so you don't need to write OnDrawItem.
 
 ```
 function GetItemArray(Index: Integer): TArray<String>
@@ -218,7 +218,7 @@ Occurs after a column was resised.
 OnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState)
 ```
 You should used this event to write all columns, using DwCol method (please see example source).
-> **This event won't fire if you are using TabbedText=True**
+> **This event won't fire if you are using AutoDrawTabbedText=True**
 
 ```
 MouseEnterCol(Sender: TObject; Col: TListHeaderCol)
