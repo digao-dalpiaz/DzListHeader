@@ -144,13 +144,13 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 procedure LoadCustom(const A: String)
 ```
 Loads column customization from string, including position, size, and visibility.
-You can load from registry/ini file
+You can load from registry/ini file.
 
 ```
 function SaveCustom: String
 ```
 Save columns customization to string, including position, size, and visibility.
-You can save to registry/ini file
+You can save to registry/ini file.
 
 ```
 function ColByID(ID: Integer): TListHeaderCol
