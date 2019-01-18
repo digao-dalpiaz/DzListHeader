@@ -173,6 +173,8 @@ type
     constructor Create(AOwner: TListHeader); reintroduce;
   end;
 
+  TEvListHeaderColumnDraw = procedure(Sender: TObject; Col: TListHeaderCol;
+    Canvas: TCanvas; Rect: TRect; Hover: Boolean) of object;
   TEvListHeaderColumnOp = procedure(Sender: TObject; Col: TListHeaderCol) of object;
   TEvListHeaderOnDrawItem = procedure(Control: TWinControl; Index: Integer; Rect: TRect;
     State: TOwnerDrawState) of object; //Vcl.StdCtrls.TDrawItemEvent
@@ -205,6 +207,7 @@ type
     FLineTop: Integer;
     FTextMargin: Integer;
 
+    FEvColumnDraw: TEvListHeaderColumnDraw;
     FEvColumnClick, FEvColumnRClick, FEvColumnResize,
     FEvMouseEnterCol, FEvMouseLeaveCol: TEvListHeaderColumnOp;
 
@@ -285,6 +288,7 @@ type
 
     property TitleFont: TFont read FTitleFont write SetTitleFont stored GetStored_TitleFont;
 
+    property OnColumnDraw: TEvListHeaderColumnDraw read FEvColumnDraw write FEvColumnDraw;
     property OnColumnClick: TEvListHeaderColumnOp read FEvColumnClick write FEvColumnClick;
     property OnColumnRClick: TEvListHeaderColumnOp read FEvColumnRClick write FEvColumnRClick;
     property OnColumnResize: TEvListHeaderColumnOp read FEvColumnResize write FEvColumnResize;
@@ -1243,6 +1247,9 @@ begin
       altTxt := (Height+1-H) div 2; if altTxt<1 then altTxt := 1;
       R := Rect(2, altTxt, Width, Height);
       DrawText(B.Canvas.Handle, A, -1, R, Fmt);
+
+      if Assigned(Comp.FEvColumnDraw) then
+        Comp.FEvColumnDraw(Comp, Col, B.Canvas, ClientRect, Hover)
     end;
 
     //
