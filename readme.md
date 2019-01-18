@@ -76,20 +76,22 @@ This components offers a second option of usage, so you don't need to use object
 In this option, you should add items with text cells separated by Tab character.
 
 Let's assume you have following table:
-|ID|Name|Phone|
-|--|--|--|
-|1|JHON|1111-2222|
-|2|SARAH|3333-4444|
-|3|ALFRED|5555-6666|
+
+| ID | Name | Phone |
+| ---: | --- | --- |
+| 1 | JHON | 1111-2222 |
+| 2 | SARAH | 3333-4444 |
+| 3 | ALFRED | 5555-6666 |
 
 So you just enable AutoDrawTabbedText property and add items to ListBox having cells separated by Tab character, like that:
 
 Example of Strings in ListBox.Items:
 ```
-1<TAB>JHON<TAB>1111-2222
-2<TAB>SARAH<TAB>3333-4444
-3<TAB>ALFRED<TAB>5555-6666
+'1'#9'JHON'#9'1111-2222'
+'2'#9'SARAH'#9'3333-4444'
+'3'#9'ALFRED'#9'5555-6666'
 ```
+
 Then just configure desired columns. In this example will be columns: ID, Name, Phone.
 Without any line of code, this will print all items in the list and aligned by columns parameters.
 
