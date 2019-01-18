@@ -126,7 +126,8 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `MinWidth` = Column MinWidth when resizing
 
-`Name` = Column Name to find the column (ColByName function) and for Save/Load customization (SaveCustom/LoadCustom functions)
+`Name` = Column Name to find the column (ColByName function) and for Save/Load customization (SaveCustom/LoadCustom functions).
+*The customization requires column name because you may change your project, and in this case the columns will be keeped in correct order based on columns names.*
 
 `Sizeable` = Allow column resize
 
@@ -165,8 +166,10 @@ Returns a TListHeaderCol by column Name.
 ```
 procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0)
 ```
-Used at OnDrawItem, to draw a column.
-You can specify a margin at left side of column, to draw an icon or other custom draw.
+Used at OnDrawItem, to draw a column item text.
+The ID represents the column number considering the order in collection. So, even when the columns are moved at run-time, the ID remains always the same. This is the main identification of the column.
+The value represents the text to be printed. Note that the value is variant type, so you don't need to convert to string, unless you want to format the value, of course.
+You can specify a margin at left side of column, to draw an icon or other custom draw (see example source).
 
 ## Column Procedures/Functions
 
