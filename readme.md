@@ -240,6 +240,7 @@ OnColumnDraw(Sender: TObject; Col: TListHeaderCol; Canvas: TCanvas; Rect: TRect;
 ```
 If you set this event, you can catch the time of column title draw, allowing you to change de canvas or adding some to current painted column.
 When the event fires, the column is already painted, but not painted into screen, because a internal bitmap is used. So this event allow you to change this bitmap canvas. When the event terminates, the bitmap is painted into screen.
+Hover parameter indicates mouse is over the column at this moment.
 
 ```delphi
 OnColumnRClick(Sender: TObject; Col: TListHeaderCol)
