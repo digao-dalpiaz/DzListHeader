@@ -102,6 +102,9 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `ListBox` = *ListBox object (required!)*
 
+`TabbedText` = When using TabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
+*You can still leave this property disabled and work with tabbed text, writing event OnDrawItem and using GetArrayText to read text of columns separated.*
+
 `TextMargin` = Space in Pixels at left and right of column (used so that the text in one column does not stick to the text in another column)
 
 `TitleFont` = Title Font for Columns captions
@@ -170,6 +173,17 @@ Used at OnDrawItem, to draw a column item text.
 The ID represents the column number considering the order in collection. So, even when the columns are moved at run-time, the ID remains always the same. This is the main identification of the column.
 The value represents the text to be printed. Note that the value is variant type, so you don't need to convert to string, unless you want to format the value, of course.
 You can specify a margin at left side of column, to draw an icon or other custom draw (see example source).
+
+```
+function AddItem(const Ar: TArray<String>): Integer
+```
+This function helps you to add item to ListBox, automatically separating array strings with tab character. You should use this function only when you are storing data into ListBox using tabbed delimiter method. Usually you will want to use this along with the TabbedText property, so you don't need to write OnDrawItem.
+
+```
+function GetItemArray(Index: Integer): TArray<String>
+```
+Returns an array of strings relative to the Index in ListBox, considering item text has data separated by tab character.
+You can quickly read a cell using `GetItemArray(Index)[Column]`.
 
 ## Column Procedures/Functions
 
