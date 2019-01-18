@@ -87,9 +87,9 @@ So you just enable AutoDrawTabbedText property and add items to ListBox having c
 
 Example of Strings in ListBox.Items:
 ```
-'1'#9'JHON'#9'1111-2222'
-'2'#9'SARAH'#9'3333-4444'
-'3'#9'ALFRED'#9'5555-6666'
+1[TAB]JHON[TAB]1111-2222
+2[TAB]SARAH[TAB]3333-4444
+3[TAB]ALFRED[TAB]5555-6666
 ```
 
 Then just configure desired columns. In this example will be columns: ID, Name, Phone.
