@@ -34,7 +34,7 @@ Note: To ensure that the component is displayed with its icon, add the following
 {$R UListHeader.dcr}
 ```
 
-Supports Delphi 2005..Delphi 10.3 Rio (using For In loops)
+Supports Delphi XE2..Delphi 10.3 Rio (using For In loops)
 
 ## How to use
 
