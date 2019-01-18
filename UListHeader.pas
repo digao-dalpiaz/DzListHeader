@@ -199,6 +199,7 @@ type
     FColorLineNormal: TColor;
 
     FUseOdd: Boolean;
+    FTabbedText: Boolean;
 
     FLineCenter: Boolean;
     FLineTop: Integer;
@@ -229,8 +230,12 @@ type
     procedure FreeShape;
 
     procedure UpdListBox;
+
     procedure ListBoxOnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
       State: TOwnerDrawState);
+
+    procedure DoEnsureListBoxAssigned;
+    procedure DrawTabbedText(Index: Integer; Rect: TRect);
   protected
     procedure Notification(AComponent: TComponent; Operation: TOperation); override;
   public
@@ -244,6 +249,9 @@ type
     function ColByName(const aName: String): TListHeaderCol;
 
     procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0);
+
+    function AddItem(const Ar: TArray<String>): Integer;
+    function GetItemArray(Index: Integer): TArray<String>;
   published
     property Anchors;
     property Align;
@@ -269,6 +277,7 @@ type
     property ColorLineNormal: TColor read FColorLineNormal write FColorLineNormal default LH_DEF_COLORLINENORMAL;
 
     property UseOdd: Boolean read FUseOdd write FUseOdd default False;
+    property TabbedText: Boolean read FTabbedText write FTabbedText default False;
 
     property LineCenter: Boolean read FLineCenter write FLineCenter default True;
     property LineTop: Integer read FLineTop write FLineTop default 0;
@@ -386,6 +395,30 @@ begin
   inherited;
 end;
 
+procedure TListHeader.DoEnsureListBoxAssigned;
+begin
+  if not Assigned(FListBox) then
+    raise Exception.Create('ListBox not assigned');
+end;
+
+function TListHeader.AddItem(const Ar: TArray<String>): Integer;
+var A, Line: String;
+begin
+  DoEnsureListBoxAssigned;
+
+  for A in Ar do
+    Line := Line + A + #9;
+
+  Result := FListBox.Items.Add(Line);
+end;
+
+function TListHeader.GetItemArray(Index: Integer): TArray<String>;
+begin
+  DoEnsureListBoxAssigned;
+
+  Result := FListBox.Items[Index].Split([#9]);
+end;
+
 function TListHeader.ColByID(ID: Integer): TListHeaderCol;
 begin
   Result := FColumns.FindItemID(ID);
@@ -408,12 +441,29 @@ begin
 
   FListBox.Canvas.FillRect(Rect);
 
+  if FTabbedText then
+    DrawTabbedText(Index, Rect)
+  else
   if Assigned(FEvOnDrawItem) then
     FEvOnDrawItem(Control, Index, Rect, State);
 
   //fix focus rectangle when using colors
   FListBox.Canvas.Font.Color := clBlack;
   FListBox.Canvas.TextOut(0, 0, '');
+end;
+
+procedure TListHeader.DrawTabbedText(Index: Integer; Rect: TRect);
+var Ar: TArray<String>;
+    I: Integer;
+begin
+  Ar := GetItemArray(Index);
+
+  I := 0;
+  while I<FColumns.Count do
+  begin
+    DwCol(I, Rect, Ar[I]);
+    Inc(I);
+  end;
 end;
 
 procedure TListHeader.DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0);
@@ -423,8 +473,7 @@ var C: TListHeaderCol;
     X, Y: Integer;
     OriginalFont: TFont;
 begin
-  if not Assigned(FListBox) then
-    raise Exception.Create('ListBox not assigned');
+  DoEnsureListBoxAssigned;
   //
 
   C := FColumns.FindItemID(ID);
@@ -860,11 +909,16 @@ end;
 
 function TListHeaderCol.GetLeft: Integer;
 begin
+  if not FVisible then
+    raise Exception.Create('Column not visible');
+
   Result := Comp.Head.Left+CompDw.Left;
 end;
 
 function TListHeaderCol.GetRight: Integer;
 begin
+  //* The check for visible column already ocurrs on GetLeft
+
   Result := GetLeft+CompDw.Width;
 end;
 
