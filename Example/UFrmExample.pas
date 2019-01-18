@@ -98,15 +98,20 @@ procedure TForm1.LHDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
   State: TOwnerDrawState);
 var P: TPerson;
     ImgIdx: Integer;
+    ColGender: TListHeaderCol;
 begin
   P := TPerson(L.Items.Objects[Index]);
 
-  if P.Gender = 'MALE' then ImgIdx := 0 else
-  if P.Gender = 'FEMALE' then ImgIdx := 1 else
-    ImgIdx := -1;
+  ColGender := LH.ColByID(4); //get "Gender" column object
+  if ColGender.Visible then
+  begin
+    if P.Gender = 'MALE' then ImgIdx := 0 else
+    if P.Gender = 'FEMALE' then ImgIdx := 1 else
+      ImgIdx := -1;
 
-  if ImgIdx<>-1 then
-    IL.Draw(L.Canvas, LH.ColByID(4).GetLeft, Rect.Top+1, ImgIdx);
+    if ImgIdx<>-1 then
+      IL.Draw(L.Canvas, ColGender.GetLeft, Rect.Top+1, ImgIdx);
+  end;
 
   LH.DwCol(0, Rect, P.ID);
   LH.DwCol(1, Rect, P.Name);
