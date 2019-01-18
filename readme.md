@@ -80,7 +80,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `AllowResize` = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
 
-`AutoDawTabbedText` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
+`AutoDrawTabbedText` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
 *You can still leave this property disabled and work with tabbed text, writing event OnDrawItem and using GetArrayText to read text of columns separated.*
 
 `ColorNormalCol` = Column background color
