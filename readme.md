@@ -210,4 +210,4 @@ Ocurrs when mouse enters a column area.
 ```
 MouseLeaveCol(Sender: TObject; Col: TListHeaderCol)
 ```
-Ocurrs when mouse leaves a column area
+Ocurrs when mouse leaves a column area.
