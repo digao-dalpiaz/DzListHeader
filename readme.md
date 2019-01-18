@@ -75,6 +75,13 @@ Simply like that!
 This components offers a second option of usage, so you don't need to use objects, and you don't need to write code to draw items.
 In this option, you should add items with text cells separated by Tab character.
 
+Let's assume you have following table:
+|ID|Name|Phone|
+|--|--|--|
+|1|JHON|1111-2222|
+|2|SARAH|3333-4444|
+|3|ALFRED|5555-6666|
+
 So you just enable AutoDrawTabbedText property and add items to ListBox having cells separated by Tab character, like that:
 
 Example of Strings in ListBox.Items:
