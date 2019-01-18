@@ -134,7 +134,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `LineTop` = indicates the Y position of text to the DwCol when LineCenter is False
 
-`ListBox` = *ListBox object (required!)*
+*`ListBox`* = *ListBox object (required!)*
 
 `TextMargin` = Space in Pixels at left and right of column (used so that the text in one column does not stick to the text in another column)
 
