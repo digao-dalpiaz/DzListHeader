@@ -218,7 +218,7 @@ Occurs after a column was resised.
 OnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState)
 ```
 You should used this event to write all columns, using DwCol method (please see example source).
-**This event won't fire if you are using TabbedText=True**
+> **This event won't fire if you are using TabbedText=True**
 
 ```
 MouseEnterCol(Sender: TObject; Col: TListHeaderCol)
