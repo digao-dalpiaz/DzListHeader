@@ -165,7 +165,8 @@ begin
     if DropIndex<>L.ItemIndex then
     begin
       L.Items.Move(L.ItemIndex, DropIndex);
-      L.Invalidate;
+      L.ItemIndex := DropIndex;
+      //L.Invalidate;
     end;
 
     DropIndex := -1;
