@@ -3,7 +3,7 @@ unit UFrmExample;
 interface
 
 uses Vcl.Forms, System.ImageList, Vcl.ImgList, Vcl.Controls, Vcl.StdCtrls,
-  System.Classes, UListHeader, System.Types;
+  System.Classes, UListHeader, System.Types, Vcl.Graphics;
 
 type
   TForm1 = class(TForm)
@@ -14,6 +14,8 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure LHDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
       State: TOwnerDrawState);
+    procedure LHColumnDraw(Sender: TObject; Col: TListHeaderCol;
+      Canvas: TCanvas; Rect: TRect; Hover: Boolean);
   end;
 
 var
@@ -23,7 +25,7 @@ implementation
 
 {$R *.dfm}
 
-uses System.SysUtils, Vcl.Graphics, System.IniFiles;
+uses System.SysUtils, System.IniFiles;
 
 type TPerson = class
   ID: Integer;
@@ -92,6 +94,13 @@ begin
   finally
     Ini.Free;
   end;
+end;
+
+procedure TForm1.LHColumnDraw(Sender: TObject; Col: TListHeaderCol;
+  Canvas: TCanvas; Rect: TRect; Hover: Boolean);
+begin
+  if Col.ID=3 then //birthday column
+    IL.Draw(Canvas, Rect.Right-20, Rect.Top+2, 2);
 end;
 
 procedure TForm1.LHDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
