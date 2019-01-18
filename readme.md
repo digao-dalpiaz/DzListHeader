@@ -55,7 +55,7 @@ Please see Example folder to know the basic functions.
 
 You should write OnDrawItem of ListHeader (not ListBox), following this idea:
 
-```
+```delphi
 procedure TForm1.ListHeaderDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
   State: TOwnerDrawState);
 var P: TPerson;
@@ -68,6 +68,16 @@ begin
 end;
 ```
 Simply like that!
+
+## Working with Tabbed Text
+
+This components offers a second option of usage, so you don't need to use objects, and you don't need to write code to draw items.
+In this option, you should add items with text cells separated by Tab character.
+
+Example:
+```
+1<TAB>
+```
 
 ## Customize Dialog
 
