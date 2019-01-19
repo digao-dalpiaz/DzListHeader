@@ -30,7 +30,7 @@ In addition, the ListHeader displays a scroll bar when the columns oversizes the
 
 Just add the UListHeader.pas to a package. Then build and install.
 
-Note: To ensure that the component is displayed with its icon, add the following line to the Package Source:
+Note: To ensure the component is displayed with its icon, add the following line to the Package Source:
 ```
 {$R UListHeader.dcr}
 ```
