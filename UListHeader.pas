@@ -308,7 +308,7 @@ uses System.SysUtils, Winapi.Windows, System.Math, Vcl.Forms,
 
 procedure Register;
 begin
-  RegisterComponents('ListHeader', [TListHeader]);
+  RegisterComponents('Digao', [TListHeader]);
 end;
 
 type TAcListBox = class(TCustomListBox); //to access listbox properties
