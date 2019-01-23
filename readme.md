@@ -107,98 +107,98 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 ## Properties
 
-`AllowMoving` = Enable/Disable columns repositioning
+`AllowMoving: Boolean` = Enable/Disable columns repositioning
 
-`AllowResize` = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
+`AllowResize: Boolean` = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
 
-`AutoDrawTabbedText` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
+`AutoDrawTabbedText: Boolean` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
 *You can still leave this property disabled and work with tabbed text, writing event OnDrawItem and using GetArrayText to read text of columns separated.*
 
-`ColorNormalCol` = Column background color
+`ColorNormalCol: TColor` = Column background color
 
-`ColorHoverCol` = Column background color when mouse over the column
+`ColorHoverCol: TColor` = Column background color when mouse over the column
 
-`ColorLineNormal` = Line background color (on listbox) when not odd line (or UseOdd disabled), and not selected line
+`ColorLineNormal: TColor` = Line background color (on listbox) when not odd line (or UseOdd disabled), and not selected line
 
-`ColorLineOdd` = Line background color when odd line and UseOdd enabled
+`ColorLineOdd: TColor` = Line background color when odd line and UseOdd enabled
 
-`ColorLineSel` = Line background color when line is selected
+`ColorLineSel: TColor` = Line background color when line is selected
 
-`ColorShape` = Color of dash that's indicate moving or resising orientation
+`ColorShape: TColor` = Color of dash that's indicate moving or resising orientation
 
-`Columns` = Columns Collection
+`Columns: TListHeaderColumns` = Columns Collection
 
-`HeaderHeight` = Fixed Header Height (you can type multiple-lines in Column Caption if you want)
+`HeaderHeight: Integer` = Fixed Header Height (you can type multiple-lines in Column Caption if you want)
 
-`LineCenter` = indicates DwCol function draws text centralized vertically according to the line height
+`LineCenter: Boolean` = indicates DwCol function draws text centralized vertically according to the line height
 
-`LineTop` = indicates the Y position of text to the DwCol when LineCenter is False
+`LineTop: Integer` = indicates the Y position of text to the DwCol when LineCenter is False
 
-**`ListBox`** = *ListBox object (required!)*
+**`ListBox: TCustomListBox`** = *ListBox object (required!)*
 
-`TextMargin` = Space in Pixels at left and right of column (used so that the text in one column does not stick to the text in another column)
+`TextMargin: Integer` = Space in Pixels at left and right of column (used so that the text in one column does not stick to the text in another column)
 
-`TitleFont` = Title Font for Columns captions
+`TitleFont: TFont` = Title Font for Columns captions
 
-`UseOdd` = use specific color background for odd lines (see ColorLineOdd property)
+`UseOdd: Boolean` = use specific color background for odd lines (see ColorLineOdd property)
 
 ## Column properties
 
-`Alignment` = Indicates alignment of text used on DwCol function
+`Alignment: TAlignment` = Indicates alignment of text used on DwCol function
 
-`Caption` = The caption text of column title
+`Caption: String` = The caption text of column title
 
-`CaptionEx` = This caption is optional, used if you want to specify a full caption to display in Customize Dialog (e.g.: Caption: "ID", CaptionEx: "ID of Person")
+`CaptionEx: String` = This caption is optional, used if you want to specify a full caption to display in Customize Dialog (e.g.: Caption: "ID", CaptionEx: "ID of Person")
 
-`Customizable` = Allow the column to be customizable on Customize Dialog
+`Customizable: Boolean` = Allow the column to be customizable on Customize Dialog
 
-`CustomTextFont` = Determines stored for TextFont property (is automatically set when TextFont changes)
+`CustomTextFont: Boolean` = Determines stored for TextFont property (is automatically set when TextFont changes)
 
-`Hint` = Column Hint
+`Hint: String` = Column Hint
 
-`MaxWidth` = Column MaxWidth when resizing
+`MaxWidth: Integer` = Column MaxWidth when resizing
 
-`MinWidth` = Column MinWidth when resizing
+`MinWidth: Integer` = Column MinWidth when resizing
 
-`Name` = Column Name to find the column (ColByName function) and for Save/Load customization (SaveCustom/LoadCustom functions).
+`Name: String` = Column Name to find the column (ColByName function) and for Save/Load customization (SaveCustom/LoadCustom functions).
 *The customization requires column name because you may change your project, and in this case the columns will be keeped in correct order based on columns names.*
 
-`Sizeable` = Allow column resize
+`Sizeable: Boolean` = Allow column resize
 
-`TextFont` = Font used by Canvas to draw item text for this column (if not changed, canvas uses ListBox font to draw items)
+`TextFont: TFont` = Font used by Canvas to draw item text for this column (if not changed, canvas uses ListBox font to draw items)
 
-`Visible` = Show/Hide column
+`Visible: Boolean` = Show/Hide column
 
-`Width` = Column width
+`Width: Integer` = Column width
 
-`Data` = Pointer to free use (non published property)
+`Data: Pointer` = Pointer to free use (non published property)
 
 ## Procedures/Functions
 
 ```delphi
-procedure LoadCustom(const A: String)
+procedure LoadCustom(const A: String);
 ```
 Loads column customization from string, including position, size, and visibility.
 You can load from registry/ini file.
 
 ```delphi
-function SaveCustom: String
+function SaveCustom: String;
 ```
 Save columns customization to string, including position, size, and visibility.
 You can save to registry/ini file.
 
 ```delphi
-function ColByID(ID: Integer): TListHeaderCol
+function ColByID(ID: Integer): TListHeaderCol;
 ```
 Returns a TListHeaderCol by column ID. The ID remains fixed when moving columns (the position of column is defined by Index property).
 
 ```delphi
-function ColByName(const aName: String): TListHeaderCol
+function ColByName(const aName: String): TListHeaderCol;
 ```
 Returns a TListHeaderCol by column Name.
 
 ```delphi
-procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0)
+procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0);
 ```
 Used at OnDrawItem, to draw a column item text.
 The ID represents the column number considering the order in collection. So, even when the columns are moved at run-time, the ID remains always the same. This is the main identification of the column.
@@ -206,12 +206,12 @@ The value represents the text to be printed. Note that the value is variant type
 You can specify a margin at left side of column, to draw an icon or other custom draw (see example source).
 
 ```delphi
-function AddItem(const Ar: TArray<String>): Integer
+function AddItem(const Ar: TArray<String>): Integer;
 ```
 This function helps you to add item to ListBox, automatically separating array strings with tab character. You should use this function only when you are storing data into ListBox using tabbed delimiter method. Usually you will want to use this along with the AutoDrawTabbedText property, so you don't need to write OnDrawItem.
 
 ```delphi
-function GetItemArray(Index: Integer): TArray<String>
+function GetItemArray(Index: Integer): TArray<String>;
 ```
 Returns an array of strings relative to the Index in ListBox, considering item text has data separated by tab character.
 You can quickly read a cell using `GetItemArray(Index)[Column]`.
@@ -219,51 +219,51 @@ You can quickly read a cell using `GetItemArray(Index)[Column]`.
 ## Column Procedures/Functions
 
 ```delphi
-function GetLeft: Integer
+function GetLeft: Integer;
 ```
 Returns left position of column according by rect bounds.
 
 ```delphi
-function GetRight: Integer
+function GetRight: Integer;
 ```
 Returns right position of column according by rect bounds.
 
 ## Events
 
 ```delphi
-OnColumnClick(Sender: TObject; Col: TListHeaderCol)
+procedure OnColumnClick(Sender: TObject; Col: TListHeaderCol);
 ```
 Occurs when left-clicked on a column.
 
 ```delphi
-OnColumnDraw(Sender: TObject; Col: TListHeaderCol; Canvas: TCanvas; Rect: TRect; Hover: Boolean)
+procedure OnColumnDraw(Sender: TObject; Col: TListHeaderCol; Canvas: TCanvas; Rect: TRect; Hover: Boolean);
 ```
 If you set this event, you can catch the time of column title draw, allowing you to change de canvas or adding some to current painted column.
 When the event fires, the column is already painted, but not painted into screen, because a internal bitmap is used. So this event allow you to change this bitmap canvas. When the event terminates, the bitmap is painted into screen.
 Hover parameter indicates mouse is over the column at this moment.
 
 ```delphi
-OnColumnRClick(Sender: TObject; Col: TListHeaderCol)
+procedure OnColumnRClick(Sender: TObject; Col: TListHeaderCol);
 ```
 Occurs when right-clicked on a column.
 
 ```delphi
-OnColumnResize(Sender: TObject; Col: TListHeaderCol)
+procedure OnColumnResize(Sender: TObject; Col: TListHeaderCol);
 ```
 Occurs after a column was resised.
 
 ```delphi
-OnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState)
+procedure OnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState);
 ```
 You should used this event to write all columns, using DwCol method (please see example source).
 > **This event won't fire if you are using AutoDrawTabbedText=True**
 
 ```delphi
-MouseEnterCol(Sender: TObject; Col: TListHeaderCol)
+procedure MouseEnterCol(Sender: TObject; Col: TListHeaderCol);
 ```
 Ocurrs when mouse enters a column area.
 
 ```delphi
-MouseLeaveCol(Sender: TObject; Col: TListHeaderCol)
+procedure MouseLeaveCol(Sender: TObject; Col: TListHeaderCol);
 ```
 Ocurrs when mouse leaves a column area.
