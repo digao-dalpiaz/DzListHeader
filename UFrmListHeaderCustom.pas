@@ -5,7 +5,7 @@ interface
 uses Vcl.Forms, Vcl.StdCtrls, Vcl.Controls, Vcl.ExtCtrls, Vcl.CheckLst,
   System.Classes, Vcl.Buttons,
   //
-  UListHeader, System.Types;
+  ListHeader, System.Types;
 
 type
   TFrmListHeaderCustom = class(TForm)
