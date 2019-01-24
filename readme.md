@@ -28,12 +28,7 @@ In addition, the ListHeader displays a scroll bar when the columns oversizes the
 
 ## Installing
 
-Just add the UListHeader.pas to a package. Then build and install.
-
-Note: To ensure the component is displayed with its icon, add the following line to the Package Source:
-```
-{$R UListHeader.dcr}
-```
+Open the ListHeaderPackage in Delphi, then Build and Install.
 
 Supports Delphi XE2..Delphi 10.3 Rio
 
