@@ -181,6 +181,8 @@ type
 
   TListHeader = class(TCustomControl)
   private
+    FAbout: String;
+
     FAllowResize: Boolean;
     FAllowMoving: Boolean;
     FHeaderHeight: Integer;
@@ -256,6 +258,8 @@ type
     function AddItem(const Ar: TArray<String>): Integer;
     function GetItemArray(Index: Integer): TArray<String>;
   published
+    property About: String read FAbout;
+
     property Anchors;
     property Align;
     property Enabled;
@@ -347,6 +351,8 @@ constructor TListHeader.Create(AOwner: TComponent);
 begin
   inherited;
   ControlStyle := ControlStyle + [csAcceptsControls]; //accept sub-controls
+
+  FAbout := 'Digão Dalpiaz / Version 3.0';
 
   FAllowResize := True;
   FAllowMoving := True;
