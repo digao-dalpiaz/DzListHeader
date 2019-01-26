@@ -48,8 +48,8 @@ Then write OnDrawItem of ListHeader (not OnDrawItem of ListBox - leave this unas
 
 Please see Example folder to know the basic functions.
 
-![Example Image](print.png?raw=true "Example Application")
-![Example CustomDlg](custom_dlg.png?raw=true "Example Custom Dlg")
+![Example Image](images/print.png)
+![Example CustomDlg](images/custom_dlg.png)
 
 ## OnDrawItem usage
 
