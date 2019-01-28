@@ -32,7 +32,7 @@ In addition, the ListHeader displays a scroll bar when the columns oversizes the
 
 Open the ListHeaderPackage in Delphi, then Build and Install.
 
-> Add sub-path "Lib" to the Library paths at Tool\Options.
+> Add sub-path "Lib" to the Library paths at Tools\Options.
 
 Supports Delphi XE2..Delphi 10.3 Rio
 
