@@ -1,3 +1,13 @@
+{------------------------------------------------------------------------------
+TListHeader component
+Developed by Rodrigo Depiné Dalpiaz (digão dalpiaz)
+Control to create header columns to a list box
+
+https://github.com/digao-dalpiaz/ListHeader
+
+Please, read the documentation at GitHub link.
+------------------------------------------------------------------------------}
+
 unit ListHeader;
 
 interface
