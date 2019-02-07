@@ -3,7 +3,9 @@
 ## Delphi visual control to create a listbox columns header
 
 ![Delphi Supported Versions](https://img.shields.io/badge/Delphi%20Supported%20Versions-XE2..10.3%20Rio-blue.svg)
+![Platforms](https://img.shields.io/badge/Platforms-Win32%20and%20Win64-red.svg)
 
+- [What's New](#whats-new)
 - [Component Description](#component-description)
 - [Installing](#installing)
 - [How to use](#how-to-use)
@@ -15,6 +17,12 @@
 - [Procedures/Functions](#proceduresfunctions)
 - [Column Procedures/Functions](#column-proceduresfunctions)
 - [Events](#events)
+
+## What's New
+
+- 02/07/2019
+
+   - Add Win64 support (library folders changed!) :warning:
 
 ## Component Description
 
@@ -30,9 +38,11 @@ In addition, the ListHeader displays a scroll bar when the columns oversizes the
 
 ## Installing
 
-Open the ListHeaderPackage in Delphi, then Build and Install.
-
-> Add sub-path "Lib" to the Library paths at Tools\Options.
+1. Open **ListHeaderPackage** in Delphi.
+2. Ensure **Win32** Platform and **Release** config are selected.
+3. Then **Build** and **Install**.
+4. If you want to use Win64 platform, select this platform and Build again.
+5. Add sub-path Win32\Release to the Library paths at Tools\Options using 32-bit option, and if you have compiled to 64 bit platform, add sub-path Win64\Release using 64-bit option.
 
 Supports Delphi XE2..Delphi 10.3 Rio
 
