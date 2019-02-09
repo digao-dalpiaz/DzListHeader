@@ -20,6 +20,10 @@
 
 ## What's New
 
+- 02/08/2019
+
+   - Component renamed. Please full uninstall previous version before install this version. :warning:
+
 - 02/07/2019
 
    - Add Win64 support (library folders changed!) :warning:
