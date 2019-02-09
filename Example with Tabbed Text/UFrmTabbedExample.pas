@@ -2,18 +2,12 @@ unit UFrmTabbedExample;
 
 interface
 
-uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, UListHeader;
+uses Vcl.Forms, Vcl.Controls, Vcl.StdCtrls, System.Classes, DzListHeader;
 
 type
   TForm1 = class(TForm)
-    ListHeader1: TListHeader;
+    ListHeader1: TDzListHeader;
     ListBox1: TListBox;
-  private
-    { Private declarations }
-  public
-    { Public declarations }
   end;
 
 var

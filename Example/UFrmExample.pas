@@ -3,18 +3,18 @@ unit UFrmExample;
 interface
 
 uses Vcl.Forms, System.ImageList, Vcl.ImgList, Vcl.Controls, Vcl.StdCtrls,
-  System.Classes, UListHeader, System.Types, Vcl.Graphics;
+  System.Classes, System.Types, Vcl.Graphics, DzListHeader;
 
 type
   TForm1 = class(TForm)
-    LH: TListHeader;
+    LH: TDzListHeader;
     IL: TImageList;
     L: TListBox;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure LHDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
       State: TOwnerDrawState);
-    procedure LHColumnDraw(Sender: TObject; Col: TListHeaderCol;
+    procedure LHColumnDraw(Sender: TObject; Col: TDzListHeaderCol;
       Canvas: TCanvas; Rect: TRect; Hover: Boolean);
   end;
 
@@ -96,7 +96,7 @@ begin
   end;
 end;
 
-procedure TForm1.LHColumnDraw(Sender: TObject; Col: TListHeaderCol;
+procedure TForm1.LHColumnDraw(Sender: TObject; Col: TDzListHeaderCol;
   Canvas: TCanvas; Rect: TRect; Hover: Boolean);
 begin
   if Col.ID=3 then //birthday column
@@ -107,7 +107,7 @@ procedure TForm1.LHDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
   State: TOwnerDrawState);
 var P: TPerson;
     ImgIdx: Integer;
-    ColGender: TListHeaderCol;
+    ColGender: TDzListHeaderCol;
 begin
   P := TPerson(L.Items.Objects[Index]);
 

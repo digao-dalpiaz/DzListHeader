@@ -13,7 +13,7 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object ListHeader1: TListHeader
+  object ListHeader1: TDzListHeader
     Left = 8
     Top = 8
     Width = 433
@@ -51,6 +51,7 @@ object Form1: TForm1
         '2'#9'SARAH'#9'3333-4444'
         '3'#9'ALFRED'#9'5555-6666')
       TabOrder = 2
+      ExplicitLeft = 8
     end
   end
 end
