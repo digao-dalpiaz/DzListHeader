@@ -1,4 +1,4 @@
-# ListHeader
+# DzListHeader
 
 ## Delphi visual control to create a listbox columns header
 
@@ -34,11 +34,11 @@ The THeaderControl (Delphi default control) allows some of these operations, but
 
 So, I have been working on this component, and I decided to share it, because it's very useful.
 
-In addition, the ListHeader displays a scroll bar when the columns oversizes the visible area. :smile:
+In addition, the DzListHeader displays a scroll bar when the columns oversizes the visible area. :smile:
 
 ## Installing
 
-1. Open **ListHeaderPackage** in Delphi.
+1. Open **DzListHeader** package in Delphi.
 2. Ensure **Win32** Platform and **Release** config are selected.
 3. Then **Build** and **Install**.
 4. If you want to use Win64 platform, select this platform and Build again.
@@ -49,13 +49,13 @@ Supports Delphi XE2..Delphi 10.3 Rio
 
 ## How to use
 
-Drop the ListHeader in a Form, then drop a ListBox inside the ListHeader.
+Drop the DzListHeader in a Form, then drop a ListBox inside the DzListHeader.
 
-**Set the ListHeader.ListBox = ListBox.**
+**Set the DzListHeader.ListBox = ListBox.**
 
-Create desired columns at ListHeader.Columns property (you should see the columns at design-time).
+Create desired columns at DzListHeader.Columns property (you should see the columns at design-time).
 
-Then write OnDrawItem of ListHeader (not OnDrawItem of ListBox - leave this unassigned). Call the method ListHeader.DwCol to easily draw each single column.
+Then write OnDrawItem of DzListHeader (not OnDrawItem of ListBox - leave this unassigned). Call the method DzListHeader.DwCol to easily draw each single column.
 
 Please see Example folder to know the basic functions.
 
@@ -64,18 +64,18 @@ Please see Example folder to know the basic functions.
 
 ## OnDrawItem usage
 
-You should write OnDrawItem of ListHeader (not ListBox), following this idea:
+You should write OnDrawItem of DzListHeader (not ListBox), following this idea:
 
 ```delphi
-procedure TForm1.ListHeaderDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
+procedure TForm1.DzListHeaderDrawItem(Control: TWinControl; Index: Integer; Rect: TRect;
   State: TOwnerDrawState);
 var P: TPerson;
 begin
   P := TPerson(ListBox.Items.Objects[Index]);
 
-  ListHeader.DwCol(0, Rect, P.ID);
-  ListHeader.DwCol(1, Rect, P.Name);
-  ListHeader.DwCol(2, Rect, P.Gender);
+  DzListHeader.DwCol(0, Rect, P.ID);
+  DzListHeader.DwCol(1, Rect, P.Name);
+  DzListHeader.DwCol(2, Rect, P.Gender);
 end;
 ```
 Simply like that!
@@ -136,7 +136,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `ColorShape: TColor` = Color of dash that's indicate moving or resising orientation
 
-`Columns: TListHeaderColumns` = Columns Collection
+`Columns: TDzListHeaderColumns` = Columns Collection
 
 `HeaderHeight: Integer` = Fixed Header Height (you can type multiple-lines in Column Caption if you want)
 
@@ -198,14 +198,14 @@ Save columns customization to string, including position, size, and visibility.
 You can save to registry/ini file.
 
 ```delphi
-function ColByID(ID: Integer): TListHeaderCol;
+function ColByID(ID: Integer): TDzListHeaderCol;
 ```
-Returns a TListHeaderCol by column ID. The ID remains fixed when moving columns (the position of column is defined by Index property).
+Returns a TDzListHeaderCol by column ID. The ID remains fixed when moving columns (the position of column is defined by Index property).
 
 ```delphi
-function ColByName(const aName: String): TListHeaderCol;
+function ColByName(const aName: String): TDzListHeaderCol;
 ```
-Returns a TListHeaderCol by column Name.
+Returns a TDzListHeaderCol by column Name.
 
 ```delphi
 procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0);
@@ -241,24 +241,24 @@ Returns right position of column according by rect bounds.
 ## Events
 
 ```delphi
-procedure OnColumnClick(Sender: TObject; Col: TListHeaderCol);
+procedure OnColumnClick(Sender: TObject; Col: TDzListHeaderCol);
 ```
 Occurs when left-clicked on a column.
 
 ```delphi
-procedure OnColumnDraw(Sender: TObject; Col: TListHeaderCol; Canvas: TCanvas; Rect: TRect; Hover: Boolean);
+procedure OnColumnDraw(Sender: TObject; Col: TDzListHeaderCol; Canvas: TCanvas; Rect: TRect; Hover: Boolean);
 ```
 If you set this event, you can catch the time of column title draw, allowing you to change de canvas or adding some to current painted column.
 When the event fires, the column is already painted, but not painted into screen, because a internal bitmap is used. So this event allow you to change this bitmap canvas. When the event terminates, the bitmap is painted into screen.
 Hover parameter indicates mouse is over the column at this moment.
 
 ```delphi
-procedure OnColumnRClick(Sender: TObject; Col: TListHeaderCol);
+procedure OnColumnRClick(Sender: TObject; Col: TDzListHeaderCol);
 ```
 Occurs when right-clicked on a column.
 
 ```delphi
-procedure OnColumnResize(Sender: TObject; Col: TListHeaderCol);
+procedure OnColumnResize(Sender: TObject; Col: TDzListHeaderCol);
 ```
 Occurs after a column was resised.
 
@@ -269,11 +269,11 @@ You should used this event to write all columns, using DwCol method (please see 
 > **This event won't fire if you are using AutoDrawTabbedText=True**
 
 ```delphi
-procedure MouseEnterCol(Sender: TObject; Col: TListHeaderCol);
+procedure MouseEnterCol(Sender: TObject; Col: TDzListHeaderCol);
 ```
 Ocurrs when mouse enters a column area.
 
 ```delphi
-procedure MouseLeaveCol(Sender: TObject; Col: TListHeaderCol);
+procedure MouseLeaveCol(Sender: TObject; Col: TDzListHeaderCol);
 ```
 Ocurrs when mouse leaves a column area.
