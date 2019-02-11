@@ -20,6 +20,10 @@
 
 ## What's New
 
+- 02/11/2019
+
+   - Include auto install app
+
 - 02/08/2019
 
    - Component renamed. Please full uninstall previous version before install this version. :warning:
@@ -41,6 +45,12 @@ So, I have been working on this component, and I decided to share it, because it
 In addition, the DzListHeader displays a scroll bar when the columns oversizes the visible area. :smile:
 
 ## Installing
+
+### Auto install
+
+Close Delphi IDE and run **CompInstall.exe** app to auto install component into Delphi.
+
+### Manual install
 
 1. Open **DzListHeader** package in Delphi.
 2. Ensure **Win32** Platform and **Release** config are selected.
