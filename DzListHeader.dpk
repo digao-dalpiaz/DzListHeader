@@ -26,7 +26,7 @@ package DzListHeader;
 {$IMAGEBASE $400000}
 {$DEFINE RELEASE}
 {$ENDIF IMPLICITBUILDING}
-{$DESCRIPTION 'Digao - ListHeader Component'}
+{$DESCRIPTION 'Digao Dalpiaz - ListHeader Component'}
 {$IMPLICITBUILD ON}
 
 requires
