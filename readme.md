@@ -136,7 +136,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `AllowResize: Boolean` = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
 
-`AutoDrawTabbedText: Boolean` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add itens to the ListBox with Tab dellimited to split columns. In this case, you don't need to code to draw items. There is two methos available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
+`AutoDrawTabbedText: Boolean` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add items to the ListBox with Tab delimiter to split columns. In this case, you don't need to code to draw items. There is two methods available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
 *You can still leave this property disabled and work with tabbed text, writing event OnDrawItem and using GetArrayText to read text of columns separated.*
 
 `ColorNormalCol: TColor` = Column background color
@@ -149,7 +149,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `ColorLineSel: TColor` = Line background color when line is selected
 
-`ColorShape: TColor` = Color of dash that's indicate moving or resising orientation
+`ColorShape: TColor` = Color of dash that's indicate moving or resizing orientation
 
 `Columns: TDzListHeaderColumns` = Columns Collection
 
@@ -186,7 +186,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 `MinWidth: Integer` = Column MinWidth when resizing
 
 `Name: String` = Column Name to find the column (ColByName function) and for Save/Load customization (SaveCustom/LoadCustom functions).
-*The customization requires column name because you may change your project, and in this case the columns will be keeped in correct order based on columns names.*
+*The customization requires column name because you may change your project, and in this case the columns will be kept in correct order based on columns names.*
 
 `Sizeable: Boolean` = Allow column resize
 
@@ -263,7 +263,7 @@ Occurs when left-clicked on a column.
 ```delphi
 procedure OnColumnDraw(Sender: TObject; Col: TDzListHeaderCol; Canvas: TCanvas; Rect: TRect; Hover: Boolean);
 ```
-If you set this event, you can catch the time of column title draw, allowing you to change de canvas or adding some to current painted column.
+If you set this event, you can catch the time of column title draw, allowing you to change the canvas or adding some to current painted column.
 When the event fires, the column is already painted, but not painted into screen, because a internal bitmap is used. So this event allow you to change this bitmap canvas. When the event terminates, the bitmap is painted into screen.
 Hover parameter indicates mouse is over the column at this moment.
 
@@ -275,7 +275,7 @@ Occurs when right-clicked on a column.
 ```delphi
 procedure OnColumnResize(Sender: TObject; Col: TDzListHeaderCol);
 ```
-Occurs after a column was resised.
+Occurs after a column was resized.
 
 ```delphi
 procedure OnDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState);
