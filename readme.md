@@ -6,6 +6,9 @@
 ![Platforms](https://img.shields.io/badge/Platforms-Win32%20and%20Win64-red.svg)
 ![Auto Install](https://img.shields.io/badge/-Auto%20Install%20App-orange.svg)
 
+![Example Image](images/print.png)
+![Example CustomDlg](images/custom_dlg.png)
+
 - [What's New](#whats-new)
 - [Component Description](#component-description)
 - [Installing](#installing)
@@ -73,9 +76,6 @@ Create desired columns at DzListHeader.Columns property (you should see the colu
 Then write OnDrawItem of DzListHeader (not OnDrawItem of ListBox - leave this unassigned). Call the method DzListHeader.DwCol to easily draw each single column.
 
 Please see Example folder to know the basic functions.
-
-![Example Image](images/print.png)
-![Example CustomDlg](images/custom_dlg.png)
 
 ## OnDrawItem usage
 
