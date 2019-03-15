@@ -97,7 +97,7 @@ Simply like that!
 
 ## Working with Tabbed Text
 
-This components offers a second option of usage, so you don't need to use objects, and you don't need to write code to draw items.
+This component offers a second option of usage, so you don't need to use objects, and you don't need to write code to draw items.
 In this option, you should add items with text cells separated by Tab character.
 
 Let's assume you have following table:
