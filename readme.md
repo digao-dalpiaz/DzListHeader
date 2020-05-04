@@ -24,6 +24,10 @@
 
 ## What's New
 
+- 05/03/2020
+
+   - Updated CompInstall to version 1.2
+
 - 02/11/2019
 
    - Include auto install app
