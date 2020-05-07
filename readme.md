@@ -34,7 +34,7 @@
 
 - 02/08/2019
 
-   - Component renamed. Please full uninstall previous version before install this version. :warning:
+   - Component renamed. Please full uninstall previous version before installing this version. :warning:
 
 - 02/07/2019
 
@@ -77,7 +77,7 @@ Drop the DzListHeader in a Form, then drop a ListBox inside the DzListHeader.
 
 Create desired columns at DzListHeader.Columns property (you should see the columns at design-time).
 
-Then write OnDrawItem of DzListHeader (not OnDrawItem of ListBox - leave this unassigned). Call the method DzListHeader.DwCol to easily draw each single column.
+Then write OnDrawItem of DzListHeader (not OnDrawItem of ListBox - leave this unassigned). Call the method DzListHeader.DwCol to easily draw every single column.
 
 Please see Example folder to know the basic functions.
 
@@ -127,7 +127,7 @@ Without any line of code, this will print all items in the list and aligned by c
 
 If you want to add items at run-time, you can use AddItem function, specifying an array of strings that will be converted in tabbed separated text.
 
-You may need to use OnDrawItem with tabbed text to customize cells draw. In this case, you should leave the AutoDrawTabbedText disabled and write event OnDrawItem, and then use GetItemArray to extract array of current item, having cells separated to draw using DwCol method.
+You may need to use OnDrawItem with tabbed text to customize cells draw. In this case, you should leave the AutoDrawTabbedText disabled and write event OnDrawItem, and then use GetItemArray to extract an array of the current item, having cells separated to draw using DwCol method.
 
 ## Customize Dialog
 
@@ -140,7 +140,7 @@ In Customize Dialog you can reorder columns, show/hide columns and set the defau
 
 `AllowResize: Boolean` = Enable/Disable columns moving (if false, Column.Sizeable doesn't matters)
 
-`AutoDrawTabbedText: Boolean` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add items to the ListBox with Tab delimiter to split columns. In this case, you don't need to code to draw items. There is two methods available to use with tabbed text: AddItem (add item array, so the component automatically convert in tabbed text); GetArrayText (returns an array of requested index).
+`AutoDrawTabbedText: Boolean` = When using AutoDrawTabbedText, you don't need to use objects or OnDrawItem. You may add items to the ListBox with Tab delimiter to split columns. In this case, you don't need to code to draw items. There are two methods available to use with tabbed text: AddItem (add item array, so the component automatically converts in tabbed text); GetArrayText (returns an array of requested index).
 *You can still leave this property disabled and work with tabbed text, writing event OnDrawItem and using GetArrayText to read text of columns separated.*
 
 `ColorNormalCol: TColor` = Column background color
@@ -232,17 +232,17 @@ procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer 
 Used at OnDrawItem, to draw a column item text.
 The ID represents the column number considering the order in collection. So, even when the columns are moved at run-time, the ID remains always the same. This is the main identification of the column.
 The value represents the text to be printed. Note that the value is variant type, so you don't need to convert to string, unless you want to format the value, of course.
-You can specify a margin at left side of column, to draw an icon or other custom draw (see example source).
+You can specify a margin at the left side of the column, to draw an icon or other custom draw (see example source).
 
 ```delphi
 function AddItem(const Ar: TArray<String>): Integer;
 ```
-This function helps you to add item to ListBox, automatically separating array strings with tab character. You should use this function only when you are storing data into ListBox using tabbed delimiter method. Usually you will want to use this along with the AutoDrawTabbedText property, so you don't need to write OnDrawItem.
+This function helps you to add an item to ListBox, automatically separating array strings with a tab character. You should use this function only when you are storing data into ListBox using tabbed delimiter method. Usually you will want to use this along with the AutoDrawTabbedText property, so you don't need to write OnDrawItem.
 
 ```delphi
 function GetItemArray(Index: Integer): TArray<String>;
 ```
-Returns an array of strings relative to the Index in ListBox, considering item text has data separated by tab character.
+Returns an array of strings relative to the Index in ListBox, considering item text has data separated by a tab character.
 You can quickly read a cell using `GetItemArray(Index)[Column]`.
 
 ## Column Procedures/Functions
@@ -268,7 +268,7 @@ Occurs when left-clicked on a column.
 procedure OnColumnDraw(Sender: TObject; Col: TDzListHeaderCol; Canvas: TCanvas; Rect: TRect; Hover: Boolean);
 ```
 If you set this event, you can catch the time of column title draw, allowing you to change the canvas or adding some to current painted column.
-When the event fires, the column is already painted, but not painted into screen, because a internal bitmap is used. So this event allow you to change this bitmap canvas. When the event terminates, the bitmap is painted into screen.
+When the event fires, the column is already painted, but not painted into screen, because an internal bitmap is used. So this event allows you to change this bitmap canvas. When the event terminates, the bitmap is painted into screen.
 Hover parameter indicates mouse is over the column at this moment.
 
 ```delphi
@@ -290,9 +290,9 @@ You should used this event to write all columns, using DwCol method (please see 
 ```delphi
 procedure MouseEnterCol(Sender: TObject; Col: TDzListHeaderCol);
 ```
-Ocurrs when mouse enters a column area.
+Occurs when mouse enters a column area.
 
 ```delphi
 procedure MouseLeaveCol(Sender: TObject; Col: TDzListHeaderCol);
 ```
-Ocurrs when mouse leaves a column area.
+Occurs when mouse leaves a column area.
