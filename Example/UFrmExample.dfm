@@ -85,7 +85,6 @@ object Form1: TForm1
       Align = alClient
       ItemHeight = 20
       TabOrder = 2
-      ExplicitLeft = 8
     end
   end
   object IL: TImageList

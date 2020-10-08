@@ -1,3 +1,5 @@
+![Preview](images/preview.gif)
+
 # DzListHeader
 
 ## Delphi visual control to create a listbox columns header
