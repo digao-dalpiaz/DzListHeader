@@ -1,6 +1,6 @@
 {------------------------------------------------------------------------------
 TDzListHeader component
-Developed by Rodrigo Depiné Dalpiaz (digão dalpiaz)
+Developed by Rodrigo Depine Dalpiaz (digao dalpiaz)
 Control to create header columns to a list box
 
 https://github.com/digao-dalpiaz/DzListHeader
@@ -362,7 +362,7 @@ begin
   inherited;
   ControlStyle := ControlStyle + [csAcceptsControls]; //accept sub-controls
 
-  FAbout := 'Digão Dalpiaz / Version 1.0';
+  FAbout := 'Digao Dalpiaz / Version 1.1';
 
   FAllowResize := True;
   FAllowMoving := True;
