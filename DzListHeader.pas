@@ -362,7 +362,7 @@ begin
   inherited;
   ControlStyle := ControlStyle + [csAcceptsControls]; //accept sub-controls
 
-  FAbout := 'Digao Dalpiaz / Version 1.1';
+  FAbout := 'Digao Dalpiaz / Version 1.2';
 
   FAllowResize := True;
   FAllowMoving := True;

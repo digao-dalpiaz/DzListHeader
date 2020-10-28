@@ -2,8 +2,9 @@ unit UFrmExample;
 
 interface
 
-uses Vcl.Forms, System.ImageList, Vcl.ImgList, Vcl.Controls, Vcl.StdCtrls,
-  System.Classes, System.Types, Vcl.Graphics, DzListHeader;
+uses Vcl.Forms, Vcl.ImgList, Vcl.Controls, Vcl.StdCtrls,
+  System.Classes, System.Types, Vcl.Graphics, DzListHeader
+  {$IF CompilerVersion >= 29}, System.ImageList{$IFEND};
 
 type
   TForm1 = class(TForm)

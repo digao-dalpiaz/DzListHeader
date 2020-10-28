@@ -26,6 +26,11 @@
 
 ## What's New
 
+- 10/27/2020 (Version 1.2)
+
+   - Fixed previous Delphi versions (at least on XE2, XE3, XE4 and XE5) package tag. It was causing package compilation error.
+   - Fixed the use of System.ImageList unit in Demo project because it's only available from XE8.
+
 - 10/26/2020 (Version 1.1)
 
    - Updated CompInstall to version 2.0 (now supports GitHub auto-update)
