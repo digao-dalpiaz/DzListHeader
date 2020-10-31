@@ -319,6 +319,8 @@ implementation
 uses System.SysUtils, Winapi.Windows, System.Math, Vcl.Forms,
   System.UITypes, System.StrUtils,
   DzListHeaderCustom;
+  
+const STR_VERSION = '1.3';
 
 procedure Register;
 begin
@@ -362,7 +364,7 @@ begin
   inherited;
   ControlStyle := ControlStyle + [csAcceptsControls]; //accept sub-controls
 
-  FAbout := 'Digao Dalpiaz / Version 1.2';
+  FAbout := 'Digao Dalpiaz / Version '+STR_VERSION;
 
   FAllowResize := True;
   FAllowMoving := True;
