@@ -69,7 +69,7 @@ begin
 end;
 
 procedure TFrmListHeaderCustom.AddCol(C: TDzListHeaderCol);
-var A: String;
+var A: string;
     I: Integer;
 begin
     A := C.CaptionEx;

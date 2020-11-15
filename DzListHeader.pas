@@ -36,14 +36,14 @@ type
     Comp: TDzListHeader;
     CompDw: TDzListHeader_DwCol; //visual component for column painting
 
-    FName: String; //name used to identify the column, and to find / to load / to save (should not be duplicated)
+    FName: string; //name used to identify the column, and to find / to load / to save (should not be duplicated)
     FData: Pointer; //pointer to free-use
     FAlignment: TAlignment; //align used in ListBox drawitem painting
     FTextFont: TFont;
     FCustomTextFont: Boolean;
-    FCaption: String;
-    FCaptionEx: String; //extended caption (optional), to show in customization
-    FHint: String;
+    FCaption: string;
+    FCaptionEx: string; //extended caption (optional), to show in customization
+    FHint: string;
     FWidth: Integer;
     FMinWidth: Integer;
     FMaxWidth: Integer;
@@ -53,13 +53,13 @@ type
 
     function GetNormalizedWidth(W: Integer): Integer; //get width fixed by bounds
 
-    procedure SetName(const Value: String);
-    procedure SetCaption(const Value: String);
+    procedure SetName(const Value: string);
+    procedure SetCaption(const Value: string);
     procedure SetWidth(const Value: Integer);
     procedure SetMaxWidth(const Value: Integer);
     procedure SetMinWidth(const Value: Integer);
     procedure SetVisible(const Value: Boolean);
-    procedure SetHint(const Value: String);
+    procedure SetHint(const Value: string);
     function GetTextFontStored: Boolean;
     procedure OnTextFontChanged(Sender: TObject);
     procedure SetTextFont(const Value: TFont);
@@ -74,13 +74,13 @@ type
     function GetLeft: Integer;
     function GetRight: Integer;
   published
-    property Name: String read FName write SetName;
+    property Name: string read FName write SetName;
     property Aligmnent: TAlignment read FAlignment write FAlignment default taLeftJustify;
     property TextFont: TFont read FTextFont write SetTextFont stored GetTextFontStored;
     property CustomTextFont: Boolean read FCustomTextFont write FCustomTextFont default False;
-    property Caption: String read FCaption write SetCaption;
-    property CaptionEx: String read FCaptionEx write FCaptionEx;
-    property Hint: String read FHint write SetHint;
+    property Caption: string read FCaption write SetCaption;
+    property CaptionEx: string read FCaptionEx write FCaptionEx;
+    property Hint: string read FHint write SetHint;
     property Width: Integer read FWidth write SetWidth;
     property MinWidth: Integer read FMinWidth write SetMinWidth default 0;
     property MaxWidth: Integer read FMaxWidth write SetMaxWidth default 0;
@@ -102,7 +102,7 @@ type
     property Items[Index: Integer]: TDzListHeaderCol read GetItem; default;
 
     function FindItemID(ID: Integer): TDzListHeaderCol;
-    function FindByName(const aName: String): TDzListHeaderCol;
+    function FindByName(const aName: string): TDzListHeaderCol;
   end;
 
   TDzListHeaderColsEnum = class{(TInterfacedObject, IEnumerator<TDzListHeaderCol>)}
@@ -191,7 +191,7 @@ type
 
   TDzListHeader = class(TCustomControl)
   private
-    FAbout: String;
+    FAbout: string;
 
     FAllowResize: Boolean;
     FAllowMoving: Boolean;
@@ -257,18 +257,18 @@ type
     constructor Create(AOwner: TComponent); override;
     destructor Destroy; override;
 
-    procedure LoadCustom(const A: String);
-    function SaveCustom: String;
+    procedure LoadCustom(const A: string);
+    function SaveCustom: string;
 
     function ColByID(ID: Integer): TDzListHeaderCol;
-    function ColByName(const aName: String): TDzListHeaderCol;
+    function ColByName(const aName: string): TDzListHeaderCol;
 
     procedure DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0);
 
-    function AddItem(const Ar: TArray<String>): Integer;
-    function GetItemArray(Index: Integer): TArray<String>;
+    function AddItem(const Ar: TArray<string>): Integer;
+    function GetItemArray(Index: Integer): TArray<string>;
   published
-    property About: String read FAbout;
+    property About: string read FAbout;
 
     property Anchors;
     property Align;
@@ -423,8 +423,8 @@ begin
     raise Exception.Create('ListBox not assigned');
 end;
 
-function TDzListHeader.AddItem(const Ar: TArray<String>): Integer;
-var A, Line: String;
+function TDzListHeader.AddItem(const Ar: TArray<string>): Integer;
+var A, Line: string;
 begin
   DoEnsureListBoxAssigned;
 
@@ -434,7 +434,7 @@ begin
   Result := FListBox.Items.Add(Line);
 end;
 
-function TDzListHeader.GetItemArray(Index: Integer): TArray<String>;
+function TDzListHeader.GetItemArray(Index: Integer): TArray<string>;
 begin
   DoEnsureListBoxAssigned;
 
@@ -446,7 +446,7 @@ begin
   Result := FColumns.FindItemID(ID);
 end;
 
-function TDzListHeader.ColByName(const aName: String): TDzListHeaderCol;
+function TDzListHeader.ColByName(const aName: string): TDzListHeaderCol;
 begin
   Result := FColumns.FindByName(aName);
 end;
@@ -475,7 +475,7 @@ begin
 end;
 
 procedure TDzListHeader.DrawTabbedText(Index: Integer; Rect: TRect);
-var Ar: TArray<String>;
+var Ar: TArray<string>;
     I: Integer;
 begin
   Ar := GetItemArray(Index);
@@ -491,7 +491,7 @@ end;
 procedure TDzListHeader.DwCol(ID: Integer; Rect: TRect; const Value: Variant; Margin: Integer = 0);
 var C: TDzListHeaderCol;
     R: TRect;
-    A: String;
+    A: string;
     X, Y: Integer;
     OriginalFont: TFont;
 begin
@@ -541,9 +541,9 @@ begin
     FListBox.Invalidate;
 end;
 
-procedure TDzListHeader.LoadCustom(const A: String);
-var Ar: TArray<String>;
-    aInfoCol, aName: String;
+procedure TDzListHeader.LoadCustom(const A: string);
+var Ar: TArray<string>;
+    aInfoCol, aName: string;
     Col: TDzListHeaderCol;
     Vis: Boolean;
     I, X, W: Integer;
@@ -594,7 +594,7 @@ begin
   end;
 end;
 
-function TDzListHeader.SaveCustom: String;
+function TDzListHeader.SaveCustom: string;
 var C: TDzListHeaderCol;
     I: Integer;
 begin
@@ -743,7 +743,7 @@ begin
   Comp := AOwner;
 end;
 
-function TDzListHeaderColumns.FindByName(const aName: String): TDzListHeaderCol;
+function TDzListHeaderColumns.FindByName(const aName: string): TDzListHeaderCol;
 var Col: TDzListHeaderCol;
 begin
   Result := nil;
@@ -832,7 +832,7 @@ begin
   if FName='' then Result := inherited GetDisplayName;
 end;
 
-procedure TDzListHeaderCol.SetName(const Value: String);
+procedure TDzListHeaderCol.SetName(const Value: string);
 begin
   if Value.IndexOfAny(['|','~','='])<>-1 then
     raise Exception.Create('Character not allowed'); //because coding used in load/save customization string
@@ -840,7 +840,7 @@ begin
   FName := Trim(Value);
 end;
 
-procedure TDzListHeaderCol.SetCaption(const Value: String);
+procedure TDzListHeaderCol.SetCaption(const Value: string);
 begin
   if FCaption<>Value then
   begin
@@ -866,7 +866,7 @@ begin
   FCustomTextFont := True;
 end;
 
-procedure TDzListHeaderCol.SetHint(const Value: String);
+procedure TDzListHeaderCol.SetHint(const Value: string);
 begin
   if FHint<>Value then
   begin
@@ -1236,7 +1236,7 @@ var B: Vcl.Graphics.TBitmap;
     R: TRect;
     Fmt: Cardinal;
     H, altTxt: Integer;
-    A: String;
+    A: string;
     C: TColor;
 begin
   inherited;
