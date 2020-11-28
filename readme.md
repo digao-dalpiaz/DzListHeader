@@ -7,6 +7,7 @@
 ![Delphi Supported Versions](https://img.shields.io/badge/Delphi%20Supported%20Versions-XE2..10.4-blue.svg)
 ![Platforms](https://img.shields.io/badge/Platforms-Win32%20and%20Win64-red.svg)
 ![Auto Install](https://img.shields.io/badge/-Auto%20Install%20App-orange.svg)
+![VCL](https://img.shields.io/badge/-VCL-lightgrey.svg)
 
 ![Example Image](images/print.png)
 ![Example CustomDlg](images/custom_dlg.png)
