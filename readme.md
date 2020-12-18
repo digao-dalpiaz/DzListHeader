@@ -27,6 +27,10 @@
 
 ## What's New
 
+- 12/18/2020 (Version 1.4)
+
+   - Updated Component Installer app (Fixed call to rsvars.bat when Delphi is installed in a path containing spaces characters).
+
 - 10/31/2020 (Version 1.3)
 
    - Included Delphi 10.4 auto-install support.
