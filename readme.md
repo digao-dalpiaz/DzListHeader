@@ -9,6 +9,8 @@
 ![Auto Install](https://img.shields.io/badge/-Auto%20Install%20App-orange.svg)
 ![VCL](https://img.shields.io/badge/-VCL-lightgrey.svg)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C53LVFN)
+
 ![Example Image](images/print.png)
 ![Example CustomDlg](images/custom_dlg.png)
 
