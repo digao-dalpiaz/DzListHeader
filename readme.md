@@ -29,6 +29,13 @@
 
 ## What's New
 
+- 09/12/2021 (Version 1.7)
+
+   - Delphi 11 auto-install support.
+
+<details>
+  <summary>Click here to view the entire changelog</summary>
+
 - 03/13/2021 (Version 1.6)
 
    - Removed CompInstall.exe from component sources due to AV false positive warning (now you can get it directly from CompInstall repository).
@@ -69,6 +76,8 @@
 - 02/07/2019
 
    - Add Win64 support (library folders changed!) :warning:
+   
+</details>
 
 ## Component Description
 

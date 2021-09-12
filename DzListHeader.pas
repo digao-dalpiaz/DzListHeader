@@ -320,7 +320,7 @@ uses System.SysUtils, Winapi.Windows, System.Math, Vcl.Forms,
   System.UITypes, System.StrUtils,
   DzListHeaderCustom;
   
-const STR_VERSION = '1.6';
+const STR_VERSION = '1.7';
 
 procedure Register;
 begin
