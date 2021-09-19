@@ -108,7 +108,7 @@ In addition, the DzListHeader displays a scroll bar when the columns oversizes t
 5. Add sub-path Win32\Release to the Library paths at Tools\Options using 32-bit option, and if you have compiled to 64 bit platform, add sub-path Win64\Release using 64-bit option.
 6. Run **AfterBuild.bat** to publish DFM to Release folders.
 
-Supports Delphi XE3..Delphi 10.4
+Supports Delphi XE3..Delphi 11
 
 ## How to use
 
